@@ -53,8 +53,9 @@ class BankAccount:
                 self.balance -= amount
                 self.show_balance()
         except:
-            print("Cannot Withdraw Amount Greater Than Current Balance")
+            print("Cannot Withdraw Amount Greater Than The Current Balance.")
 
 
+"""Tester Code"""
 my_account = BankAccount("Adam")
 my_account.withdraw(10000000)
