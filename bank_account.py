@@ -9,3 +9,6 @@ class BankAccount:
     # Returns bank account info if user prints bank account object
     def __repr__(self):
         return "%s's account. Current Balance: $%.2f" % (self.name, self.balance)
+
+    def show_balance(self):
+        print("Current Balance: $%.2f" % (self.balance))
