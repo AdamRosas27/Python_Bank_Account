@@ -57,3 +57,4 @@ class BankAccount:
 
 
 my_account = BankAccount("Adam")
+my_account.withdraw(10000000)
