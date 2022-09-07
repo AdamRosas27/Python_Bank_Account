@@ -58,18 +58,24 @@ class BankAccount:
     # Method that takes in an amount and returns the value allocated for each expense
     def savings(self):
         monthly_income = int(
-            input("50/30/20 Budget Calculator. Enter Monthly Income As Whole: "))
-        if monthly_income <= 0:
-            return "Monthly Income Cannot Be Less Than Or Equal To Zero."
-        else:
-            necessities = monthly_income * (.5)
-            wants = monthly_income * (.3)
-            savings = monthly_income * (.2)
-            print("Monthly Necessity Allowance: $%.2f, Monthly Wants Allowance: $%.2f, Monthly Savings Allowance: $%.2f" % (
-                (necessities, wants, savings)))
+            input("50/30/20 Budget Calculator. Enter Monthly Income As Whole Number: "))
+        try:
+            if monthly_income <= 0:
+                raise ValueTooSmallError
+            else:
+                necessities = monthly_income * (.5)
+                wants = monthly_income * (.3)
+                savings = monthly_income * (.2)
+                print("Monthly Necessity Allowance: $%.2f, Monthly Wants Allowance: $%.2f, Monthly Savings Allowance: $%.2f" % (
+                    (necessities, wants, savings)))
+        except:
+            print("Monthly Income Cannot Be Less Than Or Equal To Zero.")
 
 
 """Tester Code"""
 my_account = BankAccount("Adam")
-my_account.deposit(100)
+print(my_account)
+my_account.deposit(10000)
+print(my_account)
+my_account.withdraw(2000)
 my_account.savings()
