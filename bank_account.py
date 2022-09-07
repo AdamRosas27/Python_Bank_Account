@@ -2,10 +2,16 @@
 class Error(Exception):
     pass
 
-# ValueTooSmall exception raised when input value is too small
+# ValueTooSmall exception raised when deposit value is too small
 
 
 class ValueTooSmallError(Error):
+    pass
+
+# ValueTooLargeError exception raised when withdraw value too large
+
+
+class ValueTooLargeError(Error):
     pass
 
 
@@ -30,10 +36,24 @@ class BankAccount:
         try:
             if amount <= 0:
                 raise ValueTooSmallError
-                return
             else:
                 print("Amount To Deposit: $%.2f" % (amount))
                 self.balance += amount
                 self.show_balance()
         except:
-            print("Cannot Deposit Value Less Than Or Equal To Zero.")
+            print("Cannot Deposit Amount Less Than Or Equal To Zero.")
+
+    # Withdraw method lets user withdraw an amount from bank account
+    def withdraw(self, amount):
+        try:
+            if amount > self.balance:
+                raise ValueTooLargeError
+            else:
+                print("Amount To Withdraw: $%.2f" % (amount))
+                self.balance -= amount
+                self.show_balance()
+        except:
+            print("Cannot Withdraw Amount Greater Than Current Balance")
+
+
+my_account = BankAccount("Adam")
