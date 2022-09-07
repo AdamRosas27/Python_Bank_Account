@@ -55,7 +55,21 @@ class BankAccount:
         except:
             print("Cannot Withdraw Amount Greater Than The Current Balance.")
 
+    # Method that takes in an amount and returns the value allocated for each expense
+    def savings(self):
+        monthly_income = int(
+            input("50/30/20 Budget Calculator. Enter Monthly Income As Whole: "))
+        if monthly_income <= 0:
+            return "Monthly Income Cannot Be Less Than Or Equal To Zero."
+        else:
+            necessities = monthly_income * (.5)
+            wants = monthly_income * (.3)
+            savings = monthly_income * (.2)
+            print("Monthly Necessity Allowance: $%.2f, Monthly Wants Allowance: $%.2f, Monthly Savings Allowance: $%.2f" % (
+                (necessities, wants, savings)))
+
 
 """Tester Code"""
 my_account = BankAccount("Adam")
-my_account.withdraw(10000000)
+my_account.deposit(100)
+my_account.savings()
