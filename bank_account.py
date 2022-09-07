@@ -33,5 +33,7 @@ class BankAccount:
                 return
             else:
                 print("Amount To Deposit: $%.2f" % (amount))
+                self.balance += amount
+                self.show_balance()
         except:
             print("Cannot Deposit Value Less Than Or Equal To Zero.")
