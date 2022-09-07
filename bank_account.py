@@ -1,5 +1,8 @@
+# Base class for other exceptions
 class Error(Exception):
     pass
+
+# ValueTooSmall exception raised when input value is too small
 
 
 class ValueTooSmallError(Error):
@@ -18,5 +21,6 @@ class BankAccount:
     def __repr__(self):
         return "%s's Account. Current Balance: $%.2f" % (self.name, self.balance)
 
+    # Prints out the current balance of bank account
     def show_balance(self):
         print("Current Balance: $%.2f" % (self.balance))
