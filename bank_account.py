@@ -24,3 +24,14 @@ class BankAccount:
     # Prints out the current balance of bank account
     def show_balance(self):
         print("Current Balance: $%.2f" % (self.balance))
+
+    # Takes in an amount to deposit and displays it for the user. If amount is less than or equal to 0, ValueTooSmallError exception will be raised.
+    def deposit(self, amount):
+        try:
+            if amount <= 0:
+                raise ValueTooSmallError
+                return
+            else:
+                print("Amount To Deposit: $%.2f" % (amount))
+        except:
+            print("Cannot Deposit Value Less Than Or Equal To Zero.")
